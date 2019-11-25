@@ -2,7 +2,7 @@
   Light-weight Memory Management Routines for OpenSSL-based Crypto
   Library at Runtime Phase.
 
-Copyright (c) 2009 - 2018, Intel Corporation. All rights reserved.<BR>
+Copyright (c) 2009 - 2019, Intel Corporation. All rights reserved.<BR>
 SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
@@ -12,6 +12,8 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #include <Library/UefiRuntimeLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Guid/EventGroup.h>
+
+extern void OPENSSL_cpuid_setup (void);
 
 //----------------------------------------------------------------
 // Initial version. Needs further optimizations.
@@ -380,6 +382,11 @@ RuntimeCryptLibConstructor (
                   &mVirtualAddressChangeEvent
                   );
   ASSERT_EFI_ERROR (Status);
+
+  //
+  // Initialize OpenSSL CPUID
+  //
+  OPENSSL_cpuid_setup ();
 
   return Status;
 }

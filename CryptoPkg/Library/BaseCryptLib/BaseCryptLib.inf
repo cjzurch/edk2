@@ -19,6 +19,7 @@
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = BaseCryptLib|DXE_DRIVER DXE_CORE UEFI_APPLICATION UEFI_DRIVER
+  CONSTRUCTOR                    = CryptLibConstructor
 
 #
 # The following information is for reference only and not required by the build tools.
@@ -27,6 +28,7 @@
 #
 
 [Sources]
+  DxeSmmCryptLibConstructor.c
   InternalCryptLib.h
   Hash/CryptMd4.c
   Hash/CryptMd5.c
