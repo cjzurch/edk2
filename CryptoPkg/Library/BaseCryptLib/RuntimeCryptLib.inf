@@ -56,6 +56,7 @@
   Pk/CryptAuthenticodeNull.c
   Pk/CryptTsNull.c
   Pem/CryptPem.c
+  Evp/CryptEvpMd.c
 
   SysCall/CrtWrapper.c
   SysCall/TimerWrapper.c
