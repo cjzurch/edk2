@@ -288,6 +288,16 @@ typedef struct {
     } Services;
     UINT32    Family;
   } TlsGet;
+  union {
+    struct {
+      UINT8  Init:1;
+      UINT8  Duplicate:1;
+      UINT8  Update:1;
+      UINT8  Final:1;
+      UINT8  HashAll:1;
+    } Services;
+    UINT32    Family;
+  } EvpMd;
 } PCD_CRYPTO_SERVICE_FAMILY_ENABLE;
 
 #endif
